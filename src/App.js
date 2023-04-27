@@ -1,14 +1,9 @@
 import "./App.css";
-import NavBar from "./components/NavBar/NavBar";
-import Hero from "./components/Hero/Hero";
+import { RouterProvider } from "react-router-dom";
+import { PublicRoutes } from "./routes/PublicRoutes";
 
 function App() {
-  return (
-    <div>
-      <NavBar></NavBar>
-      <Hero></Hero>
-    </div>
-  );
+  return <RouterProvider router={PublicRoutes}></RouterProvider>;
 }
 
 export default App;

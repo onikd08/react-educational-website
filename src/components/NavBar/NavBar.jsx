@@ -5,6 +5,7 @@ import {
   lightTheme,
   storeThemeInLocalStorage,
 } from "../../utilities/theme";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const getTheme = getThemeFromLocalStorage();
@@ -52,28 +53,31 @@ const NavBar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <Link to="/courses">Courses</Link>
             </li>
             <li>
-              <a>Item 2</a>
+              <Link to="/login">Login</Link>{" "}
             </li>
             <li>
-              <a>Item 3</a>
+              <Link to="/signup">Signup</Link>
             </li>
           </ul>
         </div>
-        <p className="btn btn-ghost normal-case text-xl">codePoint</p>
+        <p className="btn btn-ghost normal-case text-xl">
+          {" "}
+          <Link to="/">codePoint</Link>
+        </p>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <Link to="/courses">Courses</Link>
           </li>
           <li>
-            <a>Item 2</a>
+            <Link to="/login">Login</Link>{" "}
           </li>
           <li>
-            <a>Item 3</a>
+            <Link to="/signup">Signup</Link>
           </li>
         </ul>
       </div>
