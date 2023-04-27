@@ -22,7 +22,9 @@ const Avatar = ({ user }) => {
         className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
       >
         <li>
-          <Link className="justify-between">Profile</Link>
+          <Link to="/profile" className="justify-between">
+            Profile
+          </Link>
         </li>
         <li>
           <Link>Settings</Link>
