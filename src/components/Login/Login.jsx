@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/UserContext";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+  const { thirdPartyLogin } = useContext(AuthContext);
+
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
+  const handleThirdPartyLogin = (provider) => {
+    thirdPartyLogin(provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error.message));
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col">
@@ -48,6 +64,20 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
+          <div className="mx-auto mb-3">
+            <button
+              onClick={() => handleThirdPartyLogin(googleProvider)}
+              className="btn btn-outline btn-info me-3"
+            >
+              Google
+            </button>
+            <button
+              onClick={() => handleThirdPartyLogin(githubProvider)}
+              className="btn btn-outline"
+            >
+              GitHub
+            </button>
+          </div>
         </div>
       </div>
     </div>
