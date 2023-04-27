@@ -16,7 +16,7 @@ const Signup = () => {
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form className="card-body">
             <div className="form-control">
-              <label className="label">
+              <label htmlFor="name" className="label">
                 <span className="label-text">Full Name</span>
               </label>
               <input
@@ -28,7 +28,7 @@ const Signup = () => {
               />
             </div>
             <div className="form-control">
-              <label className="label">
+              <label htmlFor="email" className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
@@ -40,7 +40,7 @@ const Signup = () => {
               />
             </div>
             <div className="form-control">
-              <label className="label">
+              <label htmlFor="password" className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
@@ -50,14 +50,30 @@ const Signup = () => {
                 placeholder="password"
                 className="input input-bordered"
               />
-              <label className="label">
-                <Link to="/login" className="label-text-alt link link-hover">
-                  Already have an account?
-                </Link>
+            </div>
+            <div className="form-control">
+              <label htmlFor="confirm" className="label">
+                <span className="label-text">Confirm Password</span>
               </label>
+              <input
+                required
+                name="confirm"
+                type="password"
+                placeholder="confirm password"
+                className="input input-bordered"
+              />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <input
+                value="Sign up"
+                type="submit"
+                className="btn btn-primary"
+              ></input>
+            </div>
+            <div className="text-center mt-0">
+              <Link to="/login" className="label-text-alt link link-hover ">
+                Already have an account?
+              </Link>
             </div>
           </form>
         </div>
