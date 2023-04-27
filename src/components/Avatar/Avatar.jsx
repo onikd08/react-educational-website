@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/UserContext";
 
 const Avatar = ({ user }) => {
   const { photoURL, displayName, uid } = user;
+  const { logout } = useContext(AuthContext);
+  const logoutUser = () => {
+    logout()
+      .then(() => console.log("successful"))
+      .catch((err) => console.log(err.message));
+  };
   return (
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -21,7 +28,7 @@ const Avatar = ({ user }) => {
           <Link>Settings</Link>
         </li>
         <li>
-          <Link>Logout</Link>
+          <Link onClick={logoutUser}>Logout</Link>
         </li>
       </ul>
     </div>
