@@ -6,6 +6,7 @@ import Login from "../components/Login/Login";
 import Signup from "../components/Signup/Signup";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "../components/Profile/Profile";
+import Blog from "../components/Blog/Blog";
 
 export const PublicRoutes = createBrowserRouter([
   {
@@ -27,6 +28,14 @@ export const PublicRoutes = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup></Signup>,
+      },
+      {
+        path: "/blog",
+        element: (
+          <PrivateRoute>
+            <Blog />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/profile",

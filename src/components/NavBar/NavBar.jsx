@@ -75,6 +75,9 @@ const NavBar = () => {
           <li>
             <Link to="/courses">Courses</Link>
           </li>
+          <li>
+            <Link to="/blog">Blog</Link>
+          </li>
           {!user?.uid && (
             <>
               <li>

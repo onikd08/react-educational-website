@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
@@ -9,11 +9,16 @@ const Login = () => {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   const handleThirdPartyLogin = (provider) => {
     thirdPartyLogin(provider)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error.message));
   };
